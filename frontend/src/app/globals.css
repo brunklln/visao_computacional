@@ -1,0 +1,244 @@
+:root {
+  --bg-primary: #FAF8F3; /* Fundo quase-branco quente */
+  --text-primary: #1F2420; /* Texto grafite */
+  --color-action: #2F5233; /* Verde-campo profundo */
+  --color-action-hover: #1e3621;
+  --color-alert: #B8543A; /* Terracota de alerta */
+  --color-pending: #D9A02C; /* Amarelo-etiqueta-de-campo */
+  --border-color: #d1cfc9;
+  
+  --font-serif: "Source Serif 4", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilitários de tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Container de Ficha de Inspeção */
+.inspection-board {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+}
+
+/* Efeito analógico de 'clip' no topo */
+.inspection-board::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background-color: #a8a59c;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header {
+  border-bottom: 2px solid var(--text-primary);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-action);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--color-action-hover);
+}
+
+.btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-action);
+  border: 1px solid var(--color-action);
+}
+
+.btn-outline:hover {
+  background-color: #f0f5f0;
+}
+
+/* Grid para os botões de ação */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.divider {
+  height: 100%;
+  background-color: var(--border-color);
+}
+
+/* Anexo de Foto */
+.photo-attachment {
+  border: 2px dashed var(--border-color);
+  background-color: #fbfbfb;
+  padding: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.photo-attachment.has-photo {
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.photo-preview {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Carimbo de Laudo */
+.stamp-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.stamp {
+  border: 3px solid var(--color-pending);
+  color: var(--color-pending);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-weight: bold;
+  transform: rotate(-5deg);
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.stamp.alert {
+  border-color: var(--color-alert);
+  color: var(--color-alert);
+}
+
+.stamp.clean {
+  border-color: var(--color-action);
+  color: var(--color-action);
+}
+
+.stamp-title {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.stamp-value {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Loading */
+.loading-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Técnica de Overlay 2.0 (Safari bypass) */
+.file-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* O pulo do gato: opacidade 0.01 evita que o Safari considere invisível, mas o usuário não vê */
+  opacity: 0.01; 
+  cursor: pointer;
+  z-index: 10;
+}

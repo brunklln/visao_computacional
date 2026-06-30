@@ -1,0 +1,25 @@
+# Ignorar o Dataset gigante (GitHub não suporta arquivos imensos e nem é uma boa prática)
+Larva Aedes Aegypti.v4i.yolov8/
+
+# Ignorar as pastas de treinamento pesadas e históricos do YOLO
+runs/
+
+# Ignorar todos os pesos antigos baixados, exceto o nosso oficial dentro de weights/
+*.pt
+!weights/best.pt
+
+# Arquivos temporários do Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# Variaveis de ambiente com senhas/URLs locais
+.env
+.env.local
+
+# Node.js
+node_modules/
+.next/
