@@ -3,7 +3,7 @@
 > **Universidade Federal do Oeste do Pará (UFOPA)**  
 > **Instituto de Engenharia e Geociências - Programa de Computação**  
 > **Disciplina:** Inteligência Artificial | **Período:** 2026  
-> **Equipe:** Bruna Kellen
+> **Equipe:** Bruna Kellen Pereira Rodrigues
 
 Este repositório contém o código-fonte do Trabalho Final da disciplina de Inteligência Artificial. Trata-se de uma aplicação web híbrida de Visão Computacional (AI Clássica) projetada para detectar e contar larvas de *Aedes aegypti* em imagens de ovitrampas de forma automatizada, mitigando o erro humano na vigilância epidemiológica.
 
@@ -59,7 +59,6 @@ Com ambos os servidores rodando, abra o seu navegador e acesse:
 2. Clique em "Analisar Ovitrampa".
 3. A imagem será enviada para o Backend, processada pela rede YOLOv8, passará pelos nossos filtros espaciais, e o Laudo Final (imagem com as caixas vermelhas desenhadas e contagem total) aparecerá na tela.
 
-*(Adicione aqui, no GitHub, uma imagem do sistema funcionando na prática. Dica: tire um print da tela com a contagem das larvas e cole no README usando `![Demonstração](link-da-imagem.png)`)*
 
 ---
 
