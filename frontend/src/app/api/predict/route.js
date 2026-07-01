@@ -8,17 +8,16 @@ export async function POST(request) {
     if (!file) {
       return NextResponse.json({ error: "No file found" }, { status: 400 });
     }
-
-    // Recria o FormData explicitamente para evitar bugs de serialização do Node.js
-    const backendFormData = new FormData();
-    backendFormData.append("file", file);
     
     console.log("Enviando requisição proxy para o FastAPI...");
 
     const BACKEND_URL = process.env.BACKEND_URL || 'http://127.0.0.1:8000';
     const response = await fetch(`${BACKEND_URL}/api/v1/predict`, {
       method: "POST",
-      body: backendFormData,
+      body: formData,
+      headers: {
+        "Bypass-Tunnel-Reminder": "true" // Header obrigatório para APIs via localtunnel
+      }
     });
 
     if (!response.ok) {
